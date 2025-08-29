@@ -18,8 +18,6 @@ export const errorHandler = (
     res: Response,
     _next: NextFunction
 ) => {
-    console.error("🔥 Error caught:", err);
-
     // Default values
     let statusCode = 500;
     let message = "Something went wrong. Please try again.";
