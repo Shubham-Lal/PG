@@ -1,5 +1,5 @@
 import Razorpay from "razorpay";
-import { AppError } from "../middlewares/ErrorHandler";
+import { AppError } from "../../middlewares/ErrorHandler";
 
 interface PaymentOrderResponse {
     id: string;
