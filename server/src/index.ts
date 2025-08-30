@@ -2,6 +2,7 @@ import "dotenv/config";
 import express, { Request, Response } from "express";
 import cors from "cors";
 import razorpayRoutes from "./routes/razorpayRoutes";
+import paypalRoutes from "./routes/paypalRoutes";
 import { errorHandler } from "./middlewares/ErrorHandler";
 
 const app = express();
@@ -13,6 +14,7 @@ app.get("/", async (req: Request, res: Response) => {
 });
 
 app.use("/razorpay", razorpayRoutes);
+app.use("/paypal", paypalRoutes);
 
 app.use(errorHandler);
 

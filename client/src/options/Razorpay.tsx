@@ -3,14 +3,14 @@ import { toast } from "sonner";
 import { getErrorMessage } from "../utils/errorMessage";
 
 interface RazorpayPaymentResponse {
-  razorpay_payment_id: string;
-  razorpay_order_id: string;
+    razorpay_payment_id: string;
+    razorpay_order_id: string;
 }
 
 interface RazorpaySubscriptionResponse {
-  razorpay_payment_id: string;
-  razorpay_subscription_id: string;
-  razorpay_signature: string;
+    razorpay_payment_id: string;
+    razorpay_subscription_id: string;
+    razorpay_signature: string;
 }
 
 const Razorpay = () => {
@@ -109,6 +109,7 @@ const Razorpay = () => {
     return (
         <div>
             <h2>Razorpay</h2>
+
             <button onClick={handleCreateOrder}>
                 Purchase ₹1
             </button>
