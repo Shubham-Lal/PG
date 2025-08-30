@@ -1,9 +1,12 @@
 import { Router } from "express";
-import { createOrder, captureOrder } from "../controllers/paypalControllers";
+import {
+    createOrder,
+    captureOrder
+} from "../controllers/paypal/checkoutControllers";
 
 const router = Router();
 
-router.post("/orders", createOrder);
-router.post("/orders/:orderID/capture", captureOrder);
+router.post("/checkout/orders", createOrder);
+router.post("/checkout/orders/:orderID/capture", captureOrder);
 
 export default router;

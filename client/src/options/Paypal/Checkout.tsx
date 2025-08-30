@@ -2,7 +2,7 @@ import { useState } from "react";
 import type { PayPalScriptOptions } from "@paypal/paypal-js";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
-const Paypal = () => {
+const Checkout = () => {
     const initialOptions: PayPalScriptOptions = {
         clientId: import.meta.env.VITE_PAYPAL_CLIENT_ID,
         components: "buttons"
@@ -12,8 +12,6 @@ const Paypal = () => {
 
     return (
         <div>
-            <h2>Paypal</h2>
-
             <PayPalScriptProvider options={initialOptions}>
                 <PayPalButtons
                     style={{
@@ -24,7 +22,7 @@ const Paypal = () => {
                     }}
                     createOrder={async () => {
                         try {
-                            const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/paypal/orders`, {
+                            const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/paypal/checkout/orders`, {
                                 method: "POST",
                                 headers: {
                                     "Content-Type": "application/json",
@@ -52,7 +50,7 @@ const Paypal = () => {
                     onApprove={async (data, actions) => {
                         try {
                             const response = await fetch(
-                                `${import.meta.env.VITE_SERVER_URL}/paypal/orders/${data.orderID}/capture`,
+                                `${import.meta.env.VITE_SERVER_URL}/paypal/checkout/orders/${data.orderID}/capture`,
                                 {
                                     method: "POST",
                                     headers: {
@@ -85,9 +83,10 @@ const Paypal = () => {
                     }}
                 />
             </PayPalScriptProvider>
+
             <p>{message}</p>
         </div>
     )
 }
 
-export default Paypal
+export default Checkout

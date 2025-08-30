@@ -108,8 +108,6 @@ const Razorpay = () => {
 
     return (
         <div>
-            <h2>Razorpay</h2>
-
             <button onClick={handleCreateOrder}>
                 Purchase ₹1
             </button>

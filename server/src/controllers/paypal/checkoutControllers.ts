@@ -2,9 +2,9 @@ import { Request, Response, NextFunction } from "express";
 import {
   Client,
   Environment,
-  CheckoutPaymentIntent,
   OrderRequest,
-  OrdersController
+  OrdersController,
+  CheckoutPaymentIntent
 } from "@paypal/paypal-server-sdk";
 
 const client = new Client({
@@ -61,6 +61,7 @@ export const createOrder = async (req: Request, res: Response, next: NextFunctio
     return res.status(httpResponse.statusCode).json(jsonResponse);
   }
   catch (error) {
+    console.log(error)
     next(error);
   }
 };
