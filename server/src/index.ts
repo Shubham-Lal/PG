@@ -1,8 +1,9 @@
 import "dotenv/config";
 import express, { Request, Response } from "express";
 import cors from "cors";
-import razorpayRoutes from "./routes/razorpayRoutes";
 import paypalRoutes from "./routes/paypalRoutes";
+import razorpayRoutes from "./routes/razorpayRoutes";
+import dodoRoutes from "./routes/dodoRoutes";
 import { errorHandler } from "./middlewares/ErrorHandler";
 
 const app = express();
@@ -13,8 +14,9 @@ app.get("/", async (req: Request, res: Response) => {
   res.json({ message: "Server is running" });
 });
 
-app.use("/razorpay", razorpayRoutes);
 app.use("/paypal", paypalRoutes);
+app.use("/razorpay", razorpayRoutes);
+app.use("/dodo", dodoRoutes);
 
 app.use(errorHandler);
 
