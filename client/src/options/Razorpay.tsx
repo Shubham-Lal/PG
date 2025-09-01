@@ -112,7 +112,7 @@ const Razorpay = () => {
                 Purchase ₹1
             </button>
             <button onClick={handleCreateSubscription}>
-                Subscription ₹1
+                Subscription ₹25
             </button>
         </div>
     )

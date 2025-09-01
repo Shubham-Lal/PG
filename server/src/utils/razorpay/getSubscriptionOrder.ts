@@ -12,23 +12,12 @@ export const getSubscriptionOrder = async (): Promise<PaymentOrderResponse> => {
     });
 
     try {
-        // await razorpay.plans.create({
-        //     period: "daily",
-        //     interval: 7,
-        //     item: {
-        //         name: "Test plan - Daily",
-        //         amount: 100,
-        //         currency: "INR",
-        //         description: "Description for the test plan"
-        //     }
-        // });
-
         const order = await razorpay.subscriptions.create({
             plan_id: process.env.RAZORPAY_PLAN_ID as string,
             customer_notify: true,
             quantity: 1,
-            total_count: 6,
-            start_at: Math.floor(Date.now() / 1000) + 120
+            total_count: 7,
+            start_at: Math.floor(Date.now() / 1000) + 60
         });
 
         return {
